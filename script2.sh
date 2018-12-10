@@ -42,18 +42,18 @@ ls ./assignments | while read -r rep; do #for each repo
 	
 	#check if txts and folder exists
 	ok=true
-	find ./assignments/$rep -name "dataA.txt" >/dev/null 2>&1
+	find ./assignments/$rep -name "dataA.txt" -maxdepth 1 >/dev/null 2>&1
 	if [ $? != 0 ];then
 		ok=false
 	fi
 	if [ ! -d "./assignments/$rep/more" ];then
 		ok=false
 	else
-		find ./assignments/$rep/more -name "dataB.txt" >/dev/null 2>&1
+		find ./assignments/$rep/more -name "dataB.txt" -maxdepth 1 >/dev/null 2>&1
 		if [ $? != 0 ];then
 			ok=false
 		fi
-		find ./assignments/$rep/more -name "dataC.txt" >/dev/null 2>&1
+		find ./assignments/$rep/more -name "dataC.txt" -maxdepth 1 >/dev/null 2>&1
 		if [ $? != 0 ];then
 			ok=false
 		fi
